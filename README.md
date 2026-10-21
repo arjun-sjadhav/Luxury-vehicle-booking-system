@@ -66,13 +66,18 @@ A database-backed web catalog of curated luxury cars and iconic motorcycles insp
 
 ## 3. System Architecture & Database Design
 
+<a id="entity-relationship-er-diagram"></a>
 ### Entity-Relationship (ER) Diagram
+
+[![Entity-Relationship Diagram](docs/er-diagram.png)](docs/er-diagram.png)
+
+> 💡 **Tip:** Click on the diagram above or open [`docs/er-diagram.png`](docs/er-diagram.png) to inspect the high-resolution 4K schematic. The complete entity details are also documented in [`docs/er-diagram.md`](docs/er-diagram.md).
 
 ```mermaid
 erDiagram
-  BRANDS ||--o{ VEHICLES : "manufactures"
-  CATEGORIES ||--o{ VEHICLES : "classifies"
-  VEHICLES ||--o{ BOOKING_REQUESTS : "booked in"
+  BRANDS ||--o{ VEHICLES : "manufactures (1:N)"
+  CATEGORIES ||--o{ VEHICLES : "classifies (1:N)"
+  VEHICLES ||--o{ BOOKING_REQUESTS : "booked in (1:N)"
 
   BRANDS {
     int brand_id PK "AUTO_INCREMENT"
@@ -168,7 +173,8 @@ The file [`database/queries.sql`](database/queries.sql) contains runnable querie
 Luxury-vehicle-booking-system/
 ├── assets/                              # Original source vehicle image assets
 │   ├── bikes/                           # High-resolution motorcycle photos
-│   └── cars/                            # High-resolution luxury car photos
+│   ├── cars/                            # High-resolution luxury car photos
+│   └── IMAGE_MAPPING.md                 # Asset provenance, resolution, and seed mapping
 ├── config/
 │   └── database.js                      # mysql2 connection pool configuration
 ├── database/
@@ -177,7 +183,9 @@ Luxury-vehicle-booking-system/
 │   └── queries.sql                      # Demonstration & viva SQL queries
 ├── docs/
 │   ├── AUDIT.md                         # Codebase audit & PRD compliance verification
-│   └── er-diagram.md                    # Standalone Mermaid ER diagram specification
+│   ├── er-diagram.md                    # Standalone Mermaid ER diagram specification
+│   ├── er-diagram.png                   # High-resolution rendered ER diagram image
+│   └── screenshots/                     # Demonstration UI captures
 ├── public/                              # Express static frontend assets
 │   ├── about.html                       # Academic project overview & background
 │   ├── booking.html                     # Booking inquiry form with dynamic date calculations
@@ -194,7 +202,7 @@ Luxury-vehicle-booking-system/
 │   │   ├── manager.js                   # Dashboard request rendering & PATCH status updater
 │   │   └── vehicles.js                  # Dynamic fetch, search, multi-filter, sort, clear
 │   └── images/
-│       └── vehicles/                    # Web-optimized vehicle images
+│       └── vehicles/                    # Web-optimized vehicle images and fallback.jpg
 ├── routes/
 │   ├── bookingRoutes.js                 # API routes: POST /api/bookings, GET, PATCH status
 │   └── vehicleRoutes.js                 # API routes: GET /api/vehicles, /:id, /meta/filters
