@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fleet — Luxe Garage</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"></head><body><div id="site-header"></div>
+<section class="block"><div class="wrap"><h1>The Fleet</h1><p class="muted" id="count">&nbsp;</p>
+<div class="filters" role="search"><label>Search<input id="search" placeholder="Brand or model"></label>
+<label>Type<select id="type"><option value="">All</option><option>Car</option><option>Motorcycle</option></select></label>
+<label>Category<select id="category"><option value="">All</option></select></label>
+<label>Fuel<select id="fuel"><option value="">All</option><option>Petrol</option><option>Diesel</option><option>Hybrid</option><option>Electric</option></select></label>
+<label>Transmission<select id="transmission"><option value="">All</option><option>Automatic</option><option>Manual</option></select></label>
+<label>Min ₹/day<input id="minPrice" type="number" min="0" step="500"></label><label>Max ₹/day<input id="maxPrice" type="number" min="0" step="500"></label>
+<label>Sort<select id="sort"><option value="name_asc">Brand / model A–Z</option><option value="price_asc">Price: low to high</option><option value="price_desc">Price: high to low</option><option value="year_desc">Newest model year</option></select></label>
+<button class="btn" id="clear" type="button">Clear filters</button></div>
+<div class="grid" id="grid"></div></div></section>
+<div id="site-footer"></div><script src="js/main.js"></script>
+<script src="js/vehicles.js"></script>
+</body></html>

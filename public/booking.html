@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Booking request — Luxe Garage</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"></head><body><div id="site-header"></div>
+<section class="block"><div class="wrap" style="max-width:760px"><h1>Booking request</h1><p class="muted">Submitting a request does not confirm a booking. The manager will review it.</p><div class="panel"><div id="msg"></div>
+<form id="form" novalidate><div class="form-grid">
+<label class="full">Vehicle<select id="vehicle_id" name="vehicle_id" required></select></label>
+<label>Full name<input name="customer_name" required maxlength="100" autocomplete="name"></label>
+<label>Phone<input name="phone" type="tel" required autocomplete="tel"></label>
+<label class="full">Email (optional)<input name="email" type="email" autocomplete="email"></label>
+<label>Pickup date<input id="pickup_date" name="pickup_date" type="date" required></label>
+<label>Return date<input id="return_date" name="return_date" type="date" required></label>
+<label class="full">Message (optional)<textarea name="message" rows="3" maxlength="500"></textarea></label>
+<div class="full estimate" id="estimate" aria-live="polite"></div>
+<div class="full"><button class="btn" id="submit" type="submit">Submit request</button> <span class="notice">Return date counts as checkout date (25→27 Oct = 2 days).</span></div></div></form></div></div></section>
+<div id="site-footer"></div><script src="js/main.js"></script>
+<script src="js/booking.js"></script>
+</body></html>

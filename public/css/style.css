@@ -1,0 +1,46 @@
+:root{--black:#111318;--navy:#1D2430;--gold:#C8A96B;--ivory:#F5F3EE;--white:#fff;--gray:#737780;--err:#b3261e;--ok:#2e7d4f;
+--serif:'Playfair Display',Georgia,serif;--sans:Inter,Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;font-family:var(--sans);background:var(--ivory);color:var(--black);line-height:1.55}
+img{max-width:100%;display:block}a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.2;margin:0 0 .5em}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+header.site{background:var(--black);color:var(--white);position:sticky;top:0;z-index:10}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;min-height:64px;flex-wrap:wrap;gap:8px}
+.logo{font-family:var(--serif);font-size:1.25rem;text-decoration:none;letter-spacing:.04em}
+nav a{text-decoration:none;margin-left:20px;font-size:.92rem;color:#d8d8d8;padding:4px 0;border-bottom:2px solid transparent}
+nav a:hover,nav a.active{color:var(--white);border-bottom-color:var(--gold)}
+footer.site{background:var(--black);color:#b9bcc3;padding:28px 0;margin-top:60px;font-size:.88rem}
+.btn{display:inline-block;background:var(--gold);color:var(--black);border:0;padding:11px 22px;border-radius:4px;font:600 .95rem var(--sans);cursor:pointer;text-decoration:none;transition:filter .15s}
+.btn:hover{filter:brightness(1.08)}.btn.ghost{background:transparent;border:1px solid var(--navy);color:var(--navy)}
+.btn.sm{padding:7px 14px;font-size:.85rem}.btn[disabled]{opacity:.6;cursor:wait}
+.hero{background:linear-gradient(rgba(17,19,24,.72),rgba(17,19,24,.85)),url(../images/vehicles/lamborghini-svj.jpg) center/cover;color:var(--white);padding:110px 0 100px}
+.hero h1{font-size:clamp(2.1rem,5vw,3.6rem);max-width:700px}.hero p{max-width:540px;color:#d5d7dc;margin-bottom:28px}
+section.block{padding:56px 0}.muted{color:var(--gray)}.eyebrow{color:var(--gray);text-transform:uppercase;letter-spacing:.12em;font-size:.75rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:22px}
+.card{background:var(--white);border-radius:8px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.08);display:flex;flex-direction:column}
+.card .img{aspect-ratio:16/10;background:var(--navy);overflow:hidden}.card .img img{width:100%;height:100%;object-fit:cover}
+.card .body{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}.card h3{font-size:1.15rem;margin:0}
+.price{font-weight:600}.price small{color:var(--gray);font-weight:400}.actions{display:flex;gap:8px;margin-top:auto;padding-top:10px}
+.tag{display:inline-block;font-size:.72rem;background:var(--ivory);color:var(--navy);padding:2px 9px;border-radius:20px;margin-right:4px}
+.filters{background:var(--navy);color:var(--white);padding:18px;border-radius:8px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:24px;align-items:end}
+.filters label{display:flex;flex-direction:column;font-size:.75rem;gap:4px;color:#c9ccd3}
+input,select,textarea{font:inherit;padding:9px 10px;border:1px solid #c9c6bd;border-radius:4px;background:var(--white);color:var(--black);width:100%}
+.state{text-align:center;padding:48px 16px;color:var(--gray);grid-column:1/-1}
+.detail{display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:start}
+.detail .photo{border-radius:8px;overflow:hidden;background:var(--navy)}
+dl.specs{display:grid;grid-template-columns:auto 1fr;gap:8px 20px;margin:20px 0}dl.specs dt{color:var(--gray)}dl.specs dd{margin:0;font-weight:500}
+.panel{background:var(--white);padding:28px;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.form-grid .full{grid-column:1/-1}
+.form-grid label{display:flex;flex-direction:column;gap:5px;font-size:.88rem;font-weight:500}
+.alert{padding:12px 16px;border-radius:6px;margin-bottom:16px;font-size:.92rem}
+.alert.err{background:#fdecea;color:var(--err)}.alert.ok{background:#e8f5ec;color:var(--ok)}
+.estimate{background:var(--ivory);padding:14px;border-radius:6px;font-weight:600}
+.counts{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px;margin-bottom:24px}
+.counts div{background:var(--white);padding:16px;border-radius:8px}.counts b{display:block;font:600 1.8rem var(--serif)}
+.tbl{overflow-x:auto;background:var(--white);border-radius:8px}table{border-collapse:collapse;width:100%;min-width:820px;font-size:.88rem}
+th,td{padding:11px 12px;text-align:left;border-bottom:1px solid #ece9e2;vertical-align:top}th{background:var(--navy);color:var(--white);font-weight:500}
+.status{font-size:.75rem;padding:2px 9px;border-radius:20px;background:#eee}
+.status.Pending{background:#fff3d6}.status.Confirmed{background:#dff1e5}.status.Rejected{background:#fbe0dd}.status.Completed{background:#dde7f5}
+.notice{font-size:.82rem;color:var(--gray);margin-top:10px}
+@media(max-width:800px){.detail{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}nav a{margin:0 14px 0 0}}

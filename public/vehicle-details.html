@@ -1,0 +1,16 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Vehicle — Luxe Garage</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"></head><body><div id="site-header"></div>
+<section class="block"><div class="wrap" id="root"><p class="state">Loading…</p></div></section>
+<div id="site-footer"></div><script src="js/main.js"></script>
+<script>
+const id=new URLSearchParams(location.search).get("id"),root=document.getElementById("root");
+const row=(k,v)=>v===null||v===undefined||v===""?"":`<dt>${k}</dt><dd>${esc(v)}</dd>`;
+fetch("/api/vehicles/"+encodeURIComponent(id)).then(r=>{if(!r.ok)throw r.status;return r.json()}).then(v=>{
+ document.title=v.brand_name+" "+v.model+" — Luxe Garage";
+ root.innerHTML=`<div class="detail"><div class="photo">${imgTag(v,v.brand_name+" "+v.model)}</div><div>
+ <span class="eyebrow">${esc(v.category_name)}</span><h1>${esc(v.brand_name)} ${esc(v.model)}</h1>
+ <p class="price" style="font-size:1.4rem">${inr(v.price_per_day)} <small>/ day — demo estimate</small></p><p>${esc(v.description)}</p>
+ <dl class="specs">${row("Model year",v.model_year)}${row("Type",v.vehicle_type)}${row("Fuel",v.fuel_type)}${row("Transmission",v.transmission)}${row("Drivetrain",v.drivetrain)}${row("Engine",v.engine)}${row("Power",v.horsepower?v.horsepower+" hp":null)}${row("Seats",v.seating_capacity)}${row("Mileage / efficiency",v.mileage)}</dl>
+ <p class="notice">Only specifications stored for this vehicle are shown. Prices are demo estimates.</p>
+ <a class="btn" href="booking.html?vehicle=${v.vehicle_id}">Request this vehicle</a></div></div>`}).catch(c=>{root.innerHTML=`<p class="state">${c===404?"Vehicle not found.":c===400?"Invalid vehicle.":"Could not load this vehicle."} <a href="vehicles.html">Back to fleet</a></p>`});
+</script>
+</body></html>
